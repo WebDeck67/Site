@@ -1,3 +1,5 @@
+'use client'; // Add this at the top if using a separate component
+
 import Image from "next/image";
 
 import { Button } from "@/components/ui/moving-borders";

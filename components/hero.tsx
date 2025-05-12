@@ -1,10 +1,11 @@
+'use client'; // Add this at the top if using a separate component
+
 import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa6";
 
 import { Spotlight } from "@/components/ui/spotlight";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { MagicButton } from "@/components/ui/magic-button";
-import { links } from "@/config";
 
 export const Hero = () => {
   return (
@@ -27,7 +28,7 @@ export const Hero = () => {
 
       <div className="relative z-10 my-20 flex justify-center">
         <div className="flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]">
-         
+
           <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
           <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
           <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
@@ -37,9 +38,9 @@ export const Hero = () => {
             words="WebDeck transforme des concepts en expériences uniques."
           />
 
-            <p className="pt-2 mb-4 text-center text-xs text-gray-600 md:text-xs md:tracking-wider lg:text-lg">
-             N'hésitez pas à nous contacter pour discuter de votre projet ou de vos idées. 
-            </p>
+          <p className="pt-2 mb-4 text-center text-xs text-gray-600 md:text-xs md:tracking-wider lg:text-lg">
+            N&apos;hésitez pas à nous contacter pour discuter de votre projet ou de vos idées.
+          </p>
 
           <Link href="#contact" className="md:mt-10">
             <MagicButton

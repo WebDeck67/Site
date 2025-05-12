@@ -1,22 +1,19 @@
+'use client'; // Add this at the top if using a separate component
+import React from "react";
+
 import { Approach } from "@/components/approach";
 import { Clients } from "@/components/clients";
 import { Experience } from "@/components/experience";
 import { Footer } from "@/components/footer";
 import { Grid } from "@/components/grid";
 import { Hero } from "@/components/hero";
-import { Hero2 } from "@/components/hero2";
-import { twMerge } from "tailwind-merge";
 import { Spotlight } from "../components/ui/spotlight"
 import { RecentProjects } from "@/components/recent-projects";
 import { FloatingDock } from "@/components/ui/floating-dock";
 
 import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
   IconHome,
   IconNewSection,
-  IconTerminal2,
   IconBrandInstagram,
   IconCapProjecting,
   IconQuestionMark

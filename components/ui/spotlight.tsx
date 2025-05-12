@@ -1,3 +1,5 @@
+'use client'; // Add this at the top if using a separate component
+
 import { cn } from "@/lib/utils";
 
 type SpotlightProps = {

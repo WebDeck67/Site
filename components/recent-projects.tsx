@@ -1,3 +1,5 @@
+'use client'; // Add this at the top if using a separate component
+
 import Image from "next/image";
 import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa6";

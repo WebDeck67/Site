@@ -1,3 +1,5 @@
+'use client'; // Add this at the top if using a separate component
+
 import Image from "next/image";
 import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa6";
@@ -25,7 +27,7 @@ export const Footer = () => {
         </h1>
 
         <p className="my-5 text-center text-white-200 md:mt-10">
-          Contactez-nous dès aujourd'hui et discutons de comment nous vous aiderons à
+          Contactez-nous dès aujourd&apos;hui et discutons de comment nous vous aiderons à
           atteindre vos objectifs.
         </p>
 
@@ -54,7 +56,7 @@ export const Footer = () => {
           >
             Webdeck
           </Link>{" "}
-     
+
         </p>
 
         <div className="flex items-center gap-6 md:gap-3">
