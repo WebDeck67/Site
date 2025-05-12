@@ -1,4 +1,3 @@
-'use client'; // Add this at the top if using a separate component
 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { gridItems } from "@/data";

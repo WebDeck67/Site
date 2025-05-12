@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
+import { BackgroundGradientAnimation } from "./background-gradient-animation";
 
 import { links } from "@/config";
 import { techStack } from "@/data";
 import animationData from "@/data/confetti.json";
 import { cn } from "@/lib/utils";
 
-import { BackgroundGradientAnimation } from "./background-gradient-animation";
 import { MagicButton } from "./magic-button";
 
 import { GridGlobe } from "../grid-globe";
@@ -111,8 +111,8 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-
         {id === 6 && <BackgroundGradientAnimation />}
+
 
         <div
           className={cn(

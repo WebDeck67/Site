@@ -9,7 +9,7 @@ import { MagicButton } from "@/components/ui/magic-button";
 
 export const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-10 pt-36">
       <div>
         <Spotlight
           className="-left-10 -top-40 h-screen md:-left-32 md:-top-20"

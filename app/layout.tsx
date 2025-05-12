@@ -2,7 +2,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
-
 import { siteConfig } from "@/config";
 
 import { ThemeProvider } from "./provider";
@@ -22,9 +21,11 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
   return (
     <html lang="fr">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark">
-          {children}
-        </ThemeProvider>
+
+          <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark">
+            {children}
+          </ThemeProvider>
+        
       </body>
     </html>
   );
