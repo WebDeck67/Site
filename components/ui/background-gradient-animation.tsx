@@ -35,7 +35,6 @@ export const BackgroundGradientAnimation = ({
   containerClassName?: string;
 }) => {
   const interactiveRef = useRef<HTMLDivElement>(null);
-
   const [curX, setCurX] = useState(0);
   const [curY, setCurY] = useState(0);
   const [tgX, setTgX] = useState(0);
@@ -43,46 +42,12 @@ export const BackgroundGradientAnimation = ({
   const [isMounted, setIsMounted] = useState(false);
   const [isSafari, setIsSafari] = useState(false);
 
-  // Utiliser useEffect pour garantir que ce code ne s'exécute que côté client
   useEffect(() => {
     setIsMounted(true);
-
-    // Les manipulations du DOM ont été déplacées ici
-    if (typeof document !== 'undefined') {
-      document.body.style.setProperty(
-        "--gradient-background-start",
-        gradientBackgroundStart
-      );
-      document.body.style.setProperty(
-        "--gradient-background-end",
-        gradientBackgroundEnd
-      );
-      document.body.style.setProperty("--first-color", firstColor);
-      document.body.style.setProperty("--second-color", secondColor);
-      document.body.style.setProperty("--third-color", thirdColor);
-      document.body.style.setProperty("--fourth-color", fourthColor);
-      document.body.style.setProperty("--fifth-color", fifthColor);
-      document.body.style.setProperty("--pointer-color", pointerColor);
-      document.body.style.setProperty("--size", size);
-      document.body.style.setProperty("--blending-value", blendingValue);
-    }
-
-    // Vérification de Safari déplacée ici
     if (typeof navigator !== 'undefined') {
       setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
     }
-  }, [
-    blendingValue,
-    fifthColor,
-    firstColor,
-    fourthColor,
-    gradientBackgroundEnd,
-    gradientBackgroundStart,
-    pointerColor,
-    secondColor,
-    size,
-    thirdColor,
-  ]);
+  }, []);
 
   useEffect(() => {
     if (!isMounted) return;
@@ -109,8 +74,6 @@ export const BackgroundGradientAnimation = ({
     }
   };
 
-  // Si le composant n'est pas encore monté, on retourne une version simplifiée
-  // pour éviter les erreurs pendant le rendu côté serveur
   if (!isMounted) {
     return (
       <div
@@ -118,6 +81,18 @@ export const BackgroundGradientAnimation = ({
           "absolute left-0 top-0 h-full w-full overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
           containerClassName
         )}
+        style={{
+          "--gradient-background-start": gradientBackgroundStart,
+          "--gradient-background-end": gradientBackgroundEnd,
+          "--first-color": firstColor,
+          "--second-color": secondColor,
+          "--third-color": thirdColor,
+          "--fourth-color": fourthColor,
+          "--fifth-color": fifthColor,
+          "--pointer-color": pointerColor,
+          "--size": size,
+          "--blending-value": blendingValue,
+        } as React.CSSProperties}
       >
         <div className={cn("", className)}>{children}</div>
       </div>
@@ -130,6 +105,18 @@ export const BackgroundGradientAnimation = ({
         "absolute left-0 top-0 h-full w-full overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
         containerClassName
       )}
+      style={{
+        "--gradient-background-start": gradientBackgroundStart,
+        "--gradient-background-end": gradientBackgroundEnd,
+        "--first-color": firstColor,
+        "--second-color": secondColor,
+        "--third-color": thirdColor,
+        "--fourth-color": fourthColor,
+        "--fifth-color": fifthColor,
+        "--pointer-color": pointerColor,
+        "--size": size,
+        "--blending-value": blendingValue,
+      } as React.CSSProperties}
     >
       <svg className="hidden">
         <defs>
@@ -200,9 +187,9 @@ export const BackgroundGradientAnimation = ({
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat]`,
             `left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
-            `[transform-origin:calc(50%-800px)_calc(50%+800px)]`,
+            `[transform-origin:calc(50%+200px)]`,
             `animate-fifth`,
-            `opacity-100`
+            `opacity-70`
           )}
         />
 
@@ -212,7 +199,8 @@ export const BackgroundGradientAnimation = ({
             onMouseMove={handleMouseMove}
             className={cn(
               `absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat]`,
-              `-left-1/2 -top-1/2 h-full w-full [mix-blend-mode:var(--blending-value)]`,
+              `left-[calc(50%-var(--size)/2)] top-[calc(50%-var(--size)/2)] h-[var(--size)] w-[var(--size)] [mix-blend-mode:var(--blending-value)]`,
+              `[transform-origin:center_center]`,
               `opacity-70`
             )}
           />

@@ -16,7 +16,7 @@ import {
     useTransform,
 } from "motion/react";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export const FloatingDock = ({
     items,
@@ -123,12 +123,17 @@ function IconContainer({
     href: string;
 }) {
     let ref = useRef<HTMLDivElement>(null);
+    const distance = useMotionValue(0);
 
-    let distance = useTransform(mouseX, (val) => {
-        let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
-        return val - bounds.x - bounds.width / 2;
-    });
+    useEffect(() => {
+        const unsubscribe = mouseX.on("change", (val) => {
+            if (ref.current) {
+                const bounds = ref.current.getBoundingClientRect();
+                distance.set(val - bounds.x - bounds.width / 2);
+            }
+        });
+        return () => unsubscribe();
+    }, [mouseX, distance]);
 
     let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
     let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
