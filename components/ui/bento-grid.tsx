@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import { BackgroundGradientAnimation } from "./background-gradient-animation";
 
 import { links } from "@/config";
@@ -166,14 +166,10 @@ export const BentoGridItem = ({
                 className="absolute -bottom-5 right-0 cursor-pointer"
               >
                 <Lottie
-                  options={{
-                    loop: copied,
-                    autoplay: copied,
-                    animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: "xMidYMid slice",
-                    },
-                  }}
+                  animationData={animationData}
+                  loop={copied}
+                  autoplay={copied}
+                  style={{ width: 150, height: 150 }}
                 />
               </button>
 
