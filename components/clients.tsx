@@ -1,7 +1,6 @@
 
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { testimonials } from "@/data";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 export const Clients = () => {
   return (

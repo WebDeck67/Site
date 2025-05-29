@@ -62,7 +62,7 @@ const MainPage = () => {
 
         <Hero />
 
- 
+        <Approach />
         <div className="w-full max-w-7xl">
           <Grid />
           <Experience />

@@ -13,7 +13,7 @@ export const Approach = () => {
         Les étapes de <span className="text-purple">création</span> d’un site web
       </h1>
 
-      <div className="my-20 flex flex-col items-center justify-center gap-4 lg:flex-row">
+      <div className="my-10 md:my-20 flex flex-col items-center justify-center gap-4 lg:flex-row">
         <Card
           title="Planification & Conception"
           icon={<MagicButton title="Phase 1" asChild />}
@@ -71,7 +71,9 @@ const Card = ({ title, description, icon, children }: CardProps) => {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group/canvas-card relative mx-auto flex w-full max-w-sm items-center justify-center rounded-3xl border border-black/[0.2] p-4 dark:border-white/[0.2] lg:h-[35rem]"
+      onTouchStart={() => setHovered(true)}
+      onTouchEnd={() => setHovered(false)}
+      className="group/canvas-card relative mx-auto flex w-full max-w-sm items-center justify-center rounded-3xl border border-black/[0.2] p-4 dark:border-white/[0.2] h-[25rem] md:h-[30rem] lg:h-[35rem] touch-manipulation"
     >
       <Icon className="absolute -left-3 -top-3 h-6 w-6 text-black dark:text-white" />
       <Icon className="absolute -bottom-3 -left-3 h-6 w-6 text-black dark:text-white" />
@@ -95,12 +97,12 @@ const Card = ({ title, description, icon, children }: CardProps) => {
           {icon}
         </div>
 
-        <h2 className="relative z-10 mt-4 text-3xl font-bold text-black opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white">
+        <h2 className="relative z-10 mt-4 text-2xl md:text-3xl font-bold text-black opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white">
           {title}
         </h2>
 
         <p
-          className="relative z-10 mt-4 text-sm font-bold text-black opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white"
+          className="relative z-10 mt-4 text-xs md:text-sm font-bold text-black opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white px-2 md:px-0"
           style={{
             color: "#e4ecff",
           }}

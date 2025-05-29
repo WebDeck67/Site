@@ -12,7 +12,7 @@ import { BackgroundLines } from "@/components/ui/background-lines";
 
 export const RecentProjects = () => {
   return (
-    <BackgroundLines className="-z-100 relative">
+    <BackgroundLines className="relative">
       <section id="projects" className="py-20">
         <h1 className="heading">
           Une petite sélection de{" "}
