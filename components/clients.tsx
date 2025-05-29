@@ -1,10 +1,12 @@
 
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { testimonials } from "@/data";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 export const Clients = () => {
   return (
     <section id="testimonials" className="py-20">
+
       <h1 className="heading">
         Des mots de nos <span className="text-purple">clients satisfaits</span>
       </h1>
